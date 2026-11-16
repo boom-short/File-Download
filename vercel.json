@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/scrape", "destination": "/scrape.py" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
