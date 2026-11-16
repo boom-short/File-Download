@@ -82,7 +82,7 @@
         downloadBtn.style.display = "none";
         loading.style.display = "block";
 
-        const apiEndpoint = `/api/scrape?url=${encodeURIComponent(url)}`;
+        const apiEndpoint = `/scrape?url=${encodeURIComponent(url)}`;
 
         try {
             const response = await fetch(apiEndpoint);
