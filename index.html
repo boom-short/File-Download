@@ -48,16 +48,13 @@
             <button class="tab-btn active" onclick="switchTab('source')">সোর্স কোড (Source Code)</button>
             <button class="tab-btn" onclick="switchTab('preview')">লাইভ প্রিভিউ (Live Preview)</button>
         </div>
-        <!-- ডাউনলোড বাটন -->
         <button id="downloadBtn" class="download-btn" onclick="downloadSourceCode()">কোড ডাউনলোড করুন</button>
     </div>
 
-    <!-- সোর্স কোড ভিউ -->
     <div id="sourceView" class="view-section active">
         <pre id="output">এখানে কোড শো করবে...</pre>
     </div>
 
-    <!-- লাইভ প্রিভিউ ভিউ -->
     <div id="previewView" class="view-section">
         <iframe id="previewFrame"></iframe>
     </div>
@@ -82,6 +79,7 @@
         downloadBtn.style.display = "none";
         loading.style.display = "block";
 
+        // রুট ফোল্ডারে থাকা পাইথন ফাইলের এন্ডপয়েন্ট
         const apiEndpoint = `/scrape?url=${encodeURIComponent(url)}`;
 
         try {
@@ -92,14 +90,9 @@
 
             if (data.status === "success") {
                 fetchedHtmlContent = data.html;
-                
-                // সোর্স কোড দেখানো
                 output.textContent = fetchedHtmlContent;
-                
-                // ডাউনলোড বাটন ভিজিবল করা
                 downloadBtn.style.display = "block";
 
-                // প্রিভিউ ফ্রেম রেন্ডার করা
                 const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
                 doc.open();
                 doc.write(fetchedHtmlContent);
