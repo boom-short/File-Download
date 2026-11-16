@@ -13,6 +13,7 @@ class handler(BaseHTTPRequestHandler):
         if not target_url:
             self.send_response(400)
             self.send_header('Content-type', 'application/json; charset=utf-8')
+            self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
             self.wfile.write(json.dumps({"error": "দয়া করে একটি সঠিক URL প্রদান করুন।"}).encode('utf-8'))
             return
@@ -35,6 +36,7 @@ class handler(BaseHTTPRequestHandler):
         except Exception as e:
             self.send_response(500)
             self.send_header('Content-type', 'application/json; charset=utf-8')
+            self.send_header('Access-Control-Allow-Origin', '*')
             self.end_headers()
             self.wfile.write(json.dumps({"error": str(e)}).encode('utf-8'))
             
