@@ -79,8 +79,8 @@
         downloadBtn.style.display = "none";
         loading.style.display = "block";
 
-        // রুট ফোল্ডারে থাকা পাইথন ফাইলের এন্ডপয়েন্ট
-        const apiEndpoint = `/scrape?url=${encodeURIComponent(url)}`;
+        // সরাসরি পাইথন ফাইলের সাথে রুট পাথ যুক্ত করা
+        const apiEndpoint = `/scrape.py?url=${encodeURIComponent(url)}`;
 
         try {
             const response = await fetch(apiEndpoint);
